@@ -46,3 +46,20 @@ export const RemoveTodo = async ( req: Request, res: Response ) => {
         res.status( 500 ).json( { message: ErrorMessages.unknown } );
     }
 };
+
+export const getTodos = async ( req: Request, res: Response ) => {
+    const { _id } = req.params;
+    try {
+        if ( !_id ) return res.status( 400 ).json( { origin: process.env.ORIGIN, message: ErrorMessages.invalid } ).end();
+
+        const UserModel = getUserModel( process.env.MONGO_COLLECTION );
+
+        const user = await UserModel.findById( _id );
+
+        if ( !user ) return res.status( 404 ).json( { origin: process.env.ORIGIN, message: ErrorMessages.notFound } );
+
+        res.status( 200 ).json( { origin: process.env.ORIGIN, todos: ( await UserModel.findById( _id ) ).todos } );
+    } catch ( err ) {
+        res.status( 500 ).json( { message: ErrorMessages.unknown } );
+    }
+};

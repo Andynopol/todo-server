@@ -1,8 +1,10 @@
 import { Router } from "express";
 
-import { AddTodo, RemoveTodo } from '../controller/TodoController.js';
+import { AddTodo, getTodos, RemoveTodo } from '../controller/TodoController.js';
 
 const router = Router();
+
+router.get( '/get', getTodos );
 
 router.post( '/store', AddTodo );
 
