@@ -3,10 +3,9 @@ import mongoose, { Document } from "mongoose";
 export interface UserDataDoc extends Document {
     firstName: string,
     lastName: string,
-    uuid: mongoose.Types.ObjectId,
-    username?: string,
     email: string,
     password: string,
+    todos: Array<{ todoId: string, content: string, timestamp: Date; }>;
 }
 
 export interface UserData {

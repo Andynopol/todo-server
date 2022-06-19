@@ -18,7 +18,7 @@ export const AddTodo = async ( req: Request, res: Response ) => {
 
         await UserModel.findByIdAndUpdate( _id, { $push: { todos: { todoId: uuid(), content, timestamp: new Date() } } } );
 
-        res.status( 200 ).json( { origin: process.env.ORIGIN, message: "Todo Item stored with success" } );
+        res.status( 200 ).json( { origin: process.env.ORIGIN, message: "Todo Item stored with success", todos: ( await UserModel.findById( _id ) ).todos } );
 
     } catch ( err ) {
         res.status( 500 ).json( { message: ErrorMessages.unknown } );
@@ -40,7 +40,7 @@ export const RemoveTodo = async ( req: Request, res: Response ) => {
 
         await UserModel.findByIdAndUpdate( _id, { $pull: { todos: { todoId } } } );
 
-        res.status( 200 ).json( { origin: process.env.ORIGIN, message: "Todo Item removed with success" } );
+        res.status( 200 ).json( { origin: process.env.ORIGIN, message: "Todo Item removed with success", todos: ( await UserModel.findById( _id ) ).todos } );
 
     } catch ( err ) {
         res.status( 500 ).json( { message: ErrorMessages.unknown } );

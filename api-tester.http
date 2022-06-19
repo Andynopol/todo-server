@@ -1,54 +1,39 @@
-# BABILON USER DATA MANAGER API TEST
-
-
-# Only username login
-POST http://doublea1-babilon.go.ro:3550/usr/login HTTP/1.1
+POST http://doublea1-babilon.go.ro:3800/usr/login HTTP/1.1
 content-type: application/json
 
 {
-    "username":"andy",
-    "password": "test"
+    "email":"mitubmb",
+    "password":"password"
 }
 
 ###
 
-# Only email login
-POST http://doublea1-babilon.go.ro:3550/usr/login HTTP/1.1
+POST http://doublea1-babilon.go.ro:3800/usr/register HTTP/1.1
 content-type: application/json
 
 {
-    "email":"ceva2@ceva.com",
-    "password": "test"
+    "firstName":"Marian",
+    "lastName":"Popescu",
+    "email":"mitubmb2",
+    "password": "password",
+    "confirmPassword": "password"
 }
 
 ###
 
-POST http://doublea1-babilon.go.ro:3550/usr/gateway-ids HTTP/1.1
+POST http://doublea1-babilon.go.ro:3800/todos/store HTTP/1.1
 content-type: application/json
 
 {
-    "gatewayId": "12365-asdkjh-sdfkljh-1238674hhas"
+    "_id":"62af268681b4da65368b12cd",
+    "content":"test"
 }
 
 ###
-
-#standard register
-POST http://doublea1-babilon.go.ro:3550/usr/register HTTP/1.1
+DELETE http://doublea1-babilon.go.ro:3800/todos/remove HTTP/1.1
 content-type: application/json
 
 {
-    "username":"andy2",
-    "password": "test",
-    "confirmPassword":"test",
-    "firstName": "Dinu-Andrei",
-    "lastName": "Nechita",
-    "email": "ceva@ceva.com"
+    "_id":"62af268681b4da65368b12cd",
+    "todoId":"356e5d05-815a-425e-aab0-8ace981da2ed"
 }
-
-
-###
-
-DELETE http://doublea1-babilon.go.ro:3550/usr/delete-user/61a574391207e4b2691a1d36 HTTP/1.1
-content-type: application/json
-
-{}
