@@ -1,0 +1,46 @@
+{
+  "name": "babilon-user-manager",
+  "version": "0.1.0",
+  "description": "Service for managing user data inside babilon app.",
+  "main": "dist/index.js",
+  "type": "module",
+  "scripts": {
+    "watch": "tsc -w",
+    "dev": "nodemon dist/index.js",
+    "start": "node dist/index.js",
+    "setup-prod-env": "cp .env_prod .env",
+    "setup-sample-env": "cp .env_sample .env",
+    "setup-local-env": "cp .env_local .env",
+    "build": "tsc && cp .env_sample .env",
+    "deploy": "node dist/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@gitlab.com/doublea1/babilon-user-manager.git"
+  },
+  "author": "Nechita Dinu-Andrei",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://gitlab.com/doublea1/babilon-user-manager/issues"
+  },
+  "homepage": "https://gitlab.com/doublea1/babilon-user-manager#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.13",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@types/bcrypt": "^5.0.0",
+    "@types/cors": "^2.8.12",
+    "@types/dotenv": "^8.2.0",
+    "@types/express": "^4.17.13",
+    "@types/jsonwebtoken": "^8.5.6",
+    "@types/mongoose": "^5.11.97",
+    "@types/uuid": "^8.3.4",
+    "nodemon": "^2.0.15"
+  }
+}

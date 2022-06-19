@@ -1,0 +1,39 @@
+POST http://localhost:3800/usr/login HTTP/1.1
+content-type: application/json
+
+{
+    "email":"mitubmb",
+    "password":"password"
+}
+
+###
+
+POST http://localhost:3800/usr/register HTTP/1.1
+content-type: application/json
+
+{
+    "firstName":"Marian",
+    "lastName":"Popescu",
+    "email":"mitubmb2",
+    "password": "password",
+    "confirmPassword": "password"
+}
+
+###
+
+POST http://localhost:3800/todos/store HTTP/1.1
+content-type: application/json
+
+{
+    "_id":"62af268681b4da65368b12cd",
+    "content":"test"
+}
+
+###
+DELETE http://localhost:3800/todos/remove HTTP/1.1
+content-type: application/json
+
+{
+    "_id":"62af268681b4da65368b12cd",
+    "todoId":"356e5d05-815a-425e-aab0-8ace981da2ed"
+}

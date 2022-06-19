@@ -1,0 +1,54 @@
+# BABILON USER DATA MANAGER API TEST
+
+
+# Only username login
+POST http://doublea1-babilon.go.ro:3550/usr/login HTTP/1.1
+content-type: application/json
+
+{
+    "username":"andy",
+    "password": "test"
+}
+
+###
+
+# Only email login
+POST http://doublea1-babilon.go.ro:3550/usr/login HTTP/1.1
+content-type: application/json
+
+{
+    "email":"ceva2@ceva.com",
+    "password": "test"
+}
+
+###
+
+POST http://doublea1-babilon.go.ro:3550/usr/gateway-ids HTTP/1.1
+content-type: application/json
+
+{
+    "gatewayId": "12365-asdkjh-sdfkljh-1238674hhas"
+}
+
+###
+
+#standard register
+POST http://doublea1-babilon.go.ro:3550/usr/register HTTP/1.1
+content-type: application/json
+
+{
+    "username":"andy2",
+    "password": "test",
+    "confirmPassword":"test",
+    "firstName": "Dinu-Andrei",
+    "lastName": "Nechita",
+    "email": "ceva@ceva.com"
+}
+
+
+###
+
+DELETE http://doublea1-babilon.go.ro:3550/usr/delete-user/61a574391207e4b2691a1d36 HTTP/1.1
+content-type: application/json
+
+{}
