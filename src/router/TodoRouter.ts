@@ -4,7 +4,7 @@ import { AddTodo, getTodos, RemoveTodo } from '../controller/TodoController.js';
 
 const router = Router();
 
-router.get( '/get', getTodos );
+router.get( '/:_id', getTodos );
 
 router.post( '/store', AddTodo );
 
