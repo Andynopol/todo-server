@@ -57,7 +57,7 @@ export const saveUser = async ( req: Request, res: Response ) => {
 
         await newUser.save();
 
-        res.status( 200 ).json( { origin: process.env.ORIGIN, message: SuccessMessages.userCreated } );
+        res.status( 200 ).json( { origin: process.env.ORIGIN, message: SuccessMessages.userCreated, status: "OK" } );
 
     } catch ( err ) {
         res.status( 500 ).json( { message: ErrorMessages.unknown } );
